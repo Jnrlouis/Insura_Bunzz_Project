@@ -1,4 +1,4 @@
-import { apple, smartcon1, google } from './../assets';
+import { smartcon1 } from './../assets';
 import style, { layout } from './../styles';
 import Button from './Button';
 const Billing = () => (

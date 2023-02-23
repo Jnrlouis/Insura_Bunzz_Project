@@ -2,14 +2,15 @@ import {
   people01,
   people02,
   people03,
+  people04,
   facebook,
   instagram,
   linkedin,
   twitter,
-  airbnb,
+  bunzz,
   binance,
   coinbase,
-  dropbox,
+  bunzzz,
   send,
   shield,
   star,
@@ -64,7 +65,7 @@ export const features = [
 export const feedback = [
   {
     id: 'feedback-1',
-    content: 'Fullstack developer and a Business man.',
+    content: 'Full-Stack Engineer with a keen interest in Finance.',
     name: 'Dannie',
     title: 'Software Engineer',
     img: people01,
@@ -79,9 +80,10 @@ export const feedback = [
   },
   {
     id: 'feedback-3',
-    content: 'Solidity Developer, Blockchain Researcher and Technical Analyst.',
+    content:
+      'Backend Solidity Developer, Blockchain Researcher and Technical Analyst.',
     name: 'Mide Sofik',
-    title: 'Backend Solidity Developer',
+    title: 'Solidity Developer',
     img: people03,
   },
   {
@@ -90,7 +92,7 @@ export const feedback = [
       'Frontend web3 Developer who designs, build and develops responsive web apps.',
     name: 'Jeffrey Adakole',
     title: 'Software Developer',
-    img: people03,
+    img: people04,
   },
 ];
 
@@ -118,23 +120,23 @@ export const footerLinks = [
     links: [
       {
         name: 'Content',
-        link: 'https://www.hoobank.com/content/',
+        link: 'https://www.theBlocAmora.com/content/',
       },
       {
         name: 'How it Works',
-        link: 'https://www.hoobank.com/how-it-works/',
+        link: 'https://www.theBlocAmora.com/how-it-works/',
       },
       {
         name: 'Create',
-        link: 'https://www.hoobank.com/create/',
+        link: 'https://www.theBlocAmora.com/create/',
       },
       {
         name: 'Explore',
-        link: 'https://www.hoobank.com/explore/',
+        link: 'https://www.theBlocAmora.com/explore/',
       },
       {
         name: 'Terms & Services',
-        link: 'https://www.hoobank.com/terms-and-services/',
+        link: 'https://www.theBlocAmora.com/terms-and-services/',
       },
     ],
   },
@@ -143,23 +145,23 @@ export const footerLinks = [
     links: [
       {
         name: 'Help Center',
-        link: 'https://www.hoobank.com/help-center/',
+        link: 'https://www.theBlocAmora.com/help-center/',
       },
       {
         name: 'Partners',
-        link: 'https://www.hoobank.com/partners/',
+        link: 'https://www.theBlocAmora.com/partners/',
       },
       {
         name: 'Suggestions',
-        link: 'https://www.hoobank.com/suggestions/',
+        link: 'https://www.theBlocAmora.com/suggestions/',
       },
       {
         name: 'Blog',
-        link: 'https://www.hoobank.com/blog/',
+        link: 'https://www.theBlocAmora.com/blog/',
       },
       {
         name: 'Newsletters',
-        link: 'https://www.hoobank.com/newsletters/',
+        link: 'https://www.theBlocAmora.com/newsletters/',
       },
     ],
   },
@@ -168,11 +170,11 @@ export const footerLinks = [
     links: [
       {
         name: 'Our Partner',
-        link: 'https://www.hoobank.com/our-partner/',
+        link: 'https://www.theBlocAmora.com/our-partner/',
       },
       {
         name: 'Become a Partner',
-        link: 'https://www.hoobank.com/become-a-partner/',
+        link: 'https://www.theBlocAmora.com/become-a-partner/',
       },
     ],
   },
@@ -208,11 +210,11 @@ export const clients = [
   },
   {
     id: 'client-2',
-    logo: binance,
+    logo: bunzz,
   },
   {
     id: 'client-3',
-    logo: coinbase,
+    logo: bunzzz,
   },
   {
     id: 'client-4',

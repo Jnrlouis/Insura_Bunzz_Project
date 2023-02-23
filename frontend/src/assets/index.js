@@ -1,7 +1,7 @@
-import airbnb from './airbnb.png';
-import bill from './bill.png';
+import bunzz from './BUNZZlogo.jpg';
+import bunzzz from './bunzz.jpg';
 import binance from './binance.png';
-import card from './card.png';
+
 import coinbase from './coinbase.png';
 import dropbox from './dropbox.png';
 import logo from './logo.svg';
@@ -24,6 +24,7 @@ import twitter from './twitter.svg';
 import people01 from './people01.png';
 import people02 from './people02.png';
 import people03 from './people03.png';
+import people04 from './people04.png';
 import bunzz1 from './bunnz1.png';
 import bunzz2 from './bunzz2.jpg';
 import bunzz3 from './bunzz3.png';
@@ -31,10 +32,9 @@ import bag from './img.svg';
 import smartcon1 from './2-smart-contract-cover.svg';
 
 export {
-  airbnb,
-  bill,
+  bunzz,
+  bunzzz,
   binance,
-  card,
   coinbase,
   dropbox,
   logo,
@@ -56,6 +56,7 @@ export {
   people01,
   people02,
   people03,
+  people04,
   bunzz1,
   bunzz2,
   bunzz3,

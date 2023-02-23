@@ -11,7 +11,7 @@ rounded-[20px] max-w-[350px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
       alt="double_quotes"
       className="w-[42px] h-[27px] object-contain"
     />
-    <p className="font-poppins font-normal text-[32px] text-white my-10">
+    <p className="font-poppins font-normal text-[25px] text-white my-10">
       {content}
     </p>
     <div className="flex flex-row">
