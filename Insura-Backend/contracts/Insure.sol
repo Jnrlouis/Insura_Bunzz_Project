@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "./helper.sol";
+import "./Helper.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Insure is helper, Ownable {
@@ -54,7 +54,7 @@ contract Insure is helper, Ownable {
         return true;
     }
 
-    function getInsuredAmount (ValidityPeriod validityPeriod) internal returns (uint) {
+    function getInsuredAmount (ValidityPeriod validityPeriod) public returns (uint) {
         int floorPrice = getFloorPrice();
         uint256 insuredAmount;
         if (validityPeriod == ValidityPeriod.QUARTER) {
@@ -73,14 +73,14 @@ contract Insure is helper, Ownable {
         uint256 policyDuration = getDays(validityPeriod);
 
         NFTInsuranceDetails storage nftInsuranceDetails = NFTInsurance[numInsurance];
-        uint256 insuredAmount = getInsuredAmount(validityPeriod);
-        require (msg.value >= insuredAmount, "PAY CORRECT AMOUNT");
+        uint256 _insuredAmount = getInsuredAmount(validityPeriod);
+        require (msg.value >= _insuredAmount, "PAY CORRECT AMOUNT");
 
         nftInsuranceDetails.NFTInsurancyPolicyID = numInsurance;
         nftInsuranceDetails.startDate = block.timestamp;
         nftInsuranceDetails.endDay = block.timestamp + policyDuration;
         nftInsuranceDetails.capturedFloorPrice = getFloorPrice();
-        nftInsuranceDetails.insureAmount = insuredAmount;
+        nftInsuranceDetails.insureAmount = msg.value;
         nftInsuranceDetails.NFT_Name = getName(_contractAddress);
         nftInsuranceDetails.NFT_Symbol = getSymbol(_contractAddress);
         nftInsuranceDetails.NFT_TokenURI = getTokenURI(_contractAddress, _tokenId);
@@ -92,7 +92,7 @@ contract Insure is helper, Ownable {
 
     }
 
-    function withdrawEther(address payable _to, uint256 _amount) external onlyOwner {
+    function claimPremium(address payable _to, uint256 _amount) external onlyOwner {
         require(_to != address(0) && _amount > 0, "INVALID");
         (bool success, ) = _to.call{value: _amount}("");
         require (success, "FAILED");
