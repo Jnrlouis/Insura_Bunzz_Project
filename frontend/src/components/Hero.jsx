@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './../styles';
 import { discount, bubble, hosting } from './../assets';
+import { Link } from 'react-router-dom';
+
 import GetStarted from './GetStarted';
 import Readmore from './ReadMore';
 const Hero = () => {
@@ -29,11 +31,13 @@ const Hero = () => {
             <br className="sm:block hidden" />{' '}
           </h1>
           <div className="ss:flex hidden md:mr-4 mr-0">
-            <GetStarted />
+            <Link to="/InsuraApp" target='_blank'>
+              <GetStarted />
+            </Link>
           </div>
         </div>
         <h1 className="font-poppins font-semibold ss:text-[48px] text-[22px] text-white ss:leading-[100px] leading-[75px]">
-            <span className="text-gradient">against DeFi hacks,{' '}</span>
+          <span className="text-gradient">against DeFi hacks, </span>
           Smart Contract failures &{' '}
           <span className="text-gradient">Protocol Vulnerabilities,</span>
         </h1>

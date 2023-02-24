@@ -1,5 +1,9 @@
 import Navbar from './Navbar';
+import NavbarApp from './NavbarApp';
 import Billing from './Billing';
+import EthPrice from './EthPrice';
+import Ethform from './Ethform';
+import NftAssest from './NftAssest';
 import Protocol from './Protocol';
 import CardDeal from './CardDeal';
 import Business from './Business';
@@ -12,7 +16,11 @@ import Hero from './Hero';
 
 export {
   Navbar,
+  NavbarApp,
   Billing,
+  EthPrice,
+  Ethform,
+  NftAssest,
   CardDeal,
   Business,
   Protocol,

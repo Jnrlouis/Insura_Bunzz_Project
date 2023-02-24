@@ -1,6 +1,6 @@
 import style from './../styles';
 import Button from './Button';
-
+import { Link } from 'react-router-dom';
 const CTA = () => (
   <section
     className={`${style.flexCenter} ${style.marginY} ${style.padding}
@@ -9,7 +9,8 @@ const CTA = () => (
     <div className="flex-1 flex flex-col">
       <h2 className={style.heading2}>Try our service now!</h2>
       <p className={`${style.paragraph} max-w-[470px] mt-5`}>
-        Get covered against DeFi hacks, smart contract failures and protocol vulnerabilities
+        Get covered against DeFi hacks, smart contract failures and protocol
+        vulnerabilities
       </p>
     </div>
     <div className={`${style.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
@@ -18,7 +19,9 @@ const CTA = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Button />
+        <Link to="/InsuraApp" target="_blank">
+          <Button />
+        </Link>
       </a>
     </div>
   </section>

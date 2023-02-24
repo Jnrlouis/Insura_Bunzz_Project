@@ -1,10 +1,10 @@
-import { quotes } from './../assets';
+import { quotes } from '../assets';
 
-const FeedbackCard = ({ content, name, title, img }) => (
+const TeamCard = ({ content, name, title, img }) => (
   <div
     id="team"
     className="flex justify-between flex-col px-10 py-12
-rounded-[20px] max-w-[350px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
+   rounded-[20px] max-w-[350px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
   >
     <img
       src={quotes}
@@ -29,4 +29,4 @@ rounded-[20px] max-w-[350px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
   </div>
 );
 
-export default FeedbackCard;
+export default TeamCard;

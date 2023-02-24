@@ -19,6 +19,17 @@ import {
   bunzz3,
 } from '../assets';
 
+export const navLinks2 = [
+  {
+    id: 'ethprice',
+    title: 'EthPrice',
+  },
+  {
+    id: 'nftassest',
+    title: 'NftAssest',
+  },
+  
+];
 export const navLinks = [
   {
     id: 'home',
