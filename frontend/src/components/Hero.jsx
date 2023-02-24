@@ -31,7 +31,7 @@ const Hero = () => {
             <br className="sm:block hidden" />{' '}
           </h1>
           <div className="ss:flex hidden md:mr-4 mr-0">
-            <Link to="/InsuraApp" target='_blank'>
+            <Link to="/InsuraApp">
               <GetStarted />
             </Link>
           </div>
