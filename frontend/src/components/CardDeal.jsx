@@ -15,7 +15,7 @@ const CardDeal = () => (
         policies typically cover the full value of the NFT asset and provide
         compensation for any loss or damage incurred by the owner.
       </p>
-      <Link to="/InsuraApp" target="_blank">
+      <Link to="/InsuraApp">
         <Button styles="mt-10" />
       </Link>
     </div>
