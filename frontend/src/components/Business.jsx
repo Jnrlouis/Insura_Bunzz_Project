@@ -28,17 +28,18 @@ const Business = () => {
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={style.heading2}>
-          You do the business, <br className="sm:block hidden" />
-          we'll handle the money
+          Insure Your Assets <br className="sm:block hidden" />
+          Against DeFi Risks
         </h2>
-        <p className={`${style.paragraph} max-w-[470px] mt-5`}>
-          With the right credit card, you can improve your financial life by
-          building credit, earning rewards and saving money. But with hundreds
-          of credit cards on the market.
+        <p className={`${style.paragraph} max-w-[470px] mt-5 text-justify`}>
+          Our policies are tailored to meet the unique needs of DeFi investors,
+          with customizable coverage options and competitive rates. With our
+          insurance, you can invest in DeFi with confidence, knowing that your
+          assets are protected.
         </p>
         <Button styles="mt-10" />
       </div>
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div className={`${layout.sectionImg} flex-col text-justify`}>
         {features.map((feature, index) => (
           <FeatureCard key={feature.id} {...feature} index={index} />
         ))}

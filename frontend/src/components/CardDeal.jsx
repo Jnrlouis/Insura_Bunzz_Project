@@ -6,13 +6,14 @@ const CardDeal = () => (
   <section id="features" className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={style.heading2}>
-        Crypto Wallet cover
+        NFT Assest Insurance
         <br className="sm:block hidden" />
       </h2>
-      <p className={`${style.paragraph} max-w-[470px] mt-5`}>
-        We are building an alternative risk sharing platform. In the future we
-        plan to offer crypto wallet cover, as well as more standard products,
-        like earthquake cover
+      <p className={`${style.paragraph} max-w-[490px] mt-5 text-justify`}>
+        A policy designed to provide protection for NFT owners against a
+        variety of risks, including cyber attacks, theft, loss, and damage.
+        These policies typically cover the full value of the NFT asset and
+        provide compensation for any loss or damage incurred by the owner.
       </p>
       <Button styles="mt-10" />
     </div>

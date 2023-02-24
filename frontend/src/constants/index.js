@@ -41,24 +41,24 @@ export const navLinks = [
 export const features = [
   {
     id: 'feature-1',
-    icon: star,
-    title: 'Rewards',
+    icon: shield,
+    title: 'Token Devaluation Insurance',
     content:
-      'The best credit cards offer some tantalizing combinations of promotions and prizes',
+      'Token devaluation insurance compensates for depreciation in token prices and pays claims automatically!',
   },
   {
     id: 'feature-2',
     icon: shield,
-    title: '100% Secured',
+    title: 'NFT Assest Insurance ',
     content:
-      'We take proactive steps make sure your information and transactions are secure.',
+      'Protection for NFT assets against hacks, loss and unforeseen events..',
   },
   {
     id: 'feature-3',
-    icon: send,
-    title: 'Balance Transfer',
+    icon: shield,
+    title: 'DeFi Protocol Insurance',
     content:
-      'A balance transfer credit card can save you a lot of money in interest charges.',
+      'A safeguard against DeFi protocol hacks and smart contract failures.',
   },
 ];
 
@@ -119,24 +119,12 @@ export const footerLinks = [
     title: 'Useful Links',
     links: [
       {
-        name: 'Content',
+        name: 'DOCs',
         link: 'https://www.theBlocAmora.com/content/',
       },
       {
         name: 'How it Works',
         link: 'https://www.theBlocAmora.com/how-it-works/',
-      },
-      {
-        name: 'Create',
-        link: 'https://www.theBlocAmora.com/create/',
-      },
-      {
-        name: 'Explore',
-        link: 'https://www.theBlocAmora.com/explore/',
-      },
-      {
-        name: 'Terms & Services',
-        link: 'https://www.theBlocAmora.com/terms-and-services/',
       },
     ],
   },
@@ -148,20 +136,12 @@ export const footerLinks = [
         link: 'https://www.theBlocAmora.com/help-center/',
       },
       {
-        name: 'Partners',
-        link: 'https://www.theBlocAmora.com/partners/',
-      },
-      {
         name: 'Suggestions',
         link: 'https://www.theBlocAmora.com/suggestions/',
       },
       {
         name: 'Blog',
         link: 'https://www.theBlocAmora.com/blog/',
-      },
-      {
-        name: 'Newsletters',
-        link: 'https://www.theBlocAmora.com/newsletters/',
       },
     ],
   },
@@ -170,11 +150,11 @@ export const footerLinks = [
     links: [
       {
         name: 'Our Partner',
-        link: 'https://www.theBlocAmora.com/our-partner/',
+        link: 'https://www.bunzz.dev/',
       },
       {
         name: 'Become a Partner',
-        link: 'https://www.theBlocAmora.com/become-a-partner/',
+        link: 'https://www.bunzz.dev/',
       },
     ],
   },
@@ -207,17 +187,21 @@ export const clients = [
   {
     id: 'client-1',
     logo: bunzz1,
+    link: 'https://www.bunzz.dev/',
   },
   {
     id: 'client-2',
     logo: bunzz,
+    link: 'https://www.bunzz.dev/',
   },
   {
     id: 'client-3',
     logo: bunzzz,
+    link: 'https://www.bunzz.dev/',
   },
   {
     id: 'client-4',
     logo: bunzz3,
+    link: 'https://www.bunzz.dev/',
   },
 ];

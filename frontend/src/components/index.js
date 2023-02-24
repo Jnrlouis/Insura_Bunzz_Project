@@ -1,5 +1,6 @@
 import Navbar from './Navbar';
 import Billing from './Billing';
+import Protocol from './Protocol';
 import CardDeal from './CardDeal';
 import Business from './Business';
 import Client from './Client';
@@ -14,6 +15,7 @@ export {
   Billing,
   CardDeal,
   Business,
+  Protocol,
   Client,
   CTA,
   Stats,
