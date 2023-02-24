@@ -1,14 +1,14 @@
 import { eth } from './../assets';
 import style, { layout } from './../styles';
-import { Link } from 'react-router-dom';
-import Button from './Button';
-const Billing = () => (
-  <section id="product" className={layout.sectionReverse}>
+import ButtonApp from './ButtonApp';
+import Ethform from './Ethform';
+const EThPrice = () => (
+  <section id="ethprice" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img src={eth} alt="billing" className="w-[90%] relative z-[5]" />
-      <div className="absolute z-[1] w-[40%] h-[35%] top-0 blue__gradient" />
-      <div className="absolute z-[3] w-[80%] h-[35%] top-0 pink__gradient" />
-      <div className="absolute z-[3] w-[50%] h-[50%] left-20 bottom-20 blue__gradient" />
+      <Ethform/>
+      <div className="absolute z-[-1] w-[40%] h-[35%] top-0 blue__gradient" />
+      <div className="absolute z-[-3] w-[80%] h-[35%] top-0 pink__gradient" />
+      <div className="absolute z-[-3] w-[50%] h-[50%] left-20 bottom-20 blue__gradient" />
       <div
         cLassName="absolute z-[3] -left-1/2
         top-0 w-[50%] h-[50%] rounded-full
@@ -33,11 +33,9 @@ const Billing = () => (
         as the oracle.
       </p>
       <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
-        <Link to="/InsuraApp" target="_blank">
-          <Button styles="mt-10" />
-        </Link>
+        <ButtonApp styles="mt-5" />
       </div>
     </div>
   </section>
 );
-export default Billing;
+export default EThPrice;

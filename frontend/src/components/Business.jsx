@@ -1,6 +1,7 @@
 import { features } from './../constants';
 import style, { layout } from '../styles';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div
@@ -37,7 +38,10 @@ const Business = () => {
           insurance, you can invest in DeFi with confidence, knowing that your
           assets are protected.
         </p>
-        <Button styles="mt-10" />
+        <Link to="/InsuraApp" target="_blank">
+          <Button styles="mt-10" />
+        </Link>
+        
       </div>
       <div className={`${layout.sectionImg} flex-col text-justify`}>
         {features.map((feature, index) => (
