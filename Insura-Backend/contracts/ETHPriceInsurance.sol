@@ -10,14 +10,17 @@ pragma solidity ^0.8.0;
 // DONE == 6. Test the get Eth Price
 // DONE == 7. Test the check Eth value function in createPolicy function
 // DONE == 8. Add the reentracy guard to the claimSettlement function
-// 9. Test the NFT mint function in createPolicy function
-// 10. Add the dynamic metadata feature
-// 10. Test the Burn mint function claimSettlement function
+// DONE == 9. Test the NFT mint function in createPolicy function
+// DONE == 10. Add the dynamic metadata feature
+// DONE == 101. Create the metadata URI
+// DONE == 10. Test the Burn mint function claimSettlement function
+// 12 Add NatSpec
+// 13. Research on Thirdweb to get ideas for Bunzz
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
-import "./IAmoraInsureDeFi.sol";
+import "./IInsurancePolicy.sol";
 
 contract EthPriceInsurance is Ownable, ReentrancyGuard {
     uint256 public tokenIds;
@@ -25,7 +28,7 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
     uint256 public ethPrice;
 
     // policy contract instance
-    IAmoraInsureDeFi nftPolicy;
+    IInsurancePolicy nftPolicy;
 
     AggregatorV3Interface internal priceFeed;
 
@@ -48,11 +51,13 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
      * Network: Goerli * Aggregator: ETH/USD
      * Address: 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
      */
-    constructor(address policyNFTAddress) {
+    constructor() {
         priceFeed = AggregatorV3Interface(
             0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
         );
-        nftPolicy = IAmoraInsureDeFi(policyNFTAddress);
+        nftPolicy = IInsurancePolicy(
+            0xb5FfEcac8d239a19836DBEcb5262DA2B7Ca6b78e
+        );
     }
 
     /**
@@ -77,12 +82,6 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         //calculate how much premium user is to pay point
         uint256 premiumInstallments = (_value / 3) * 10 ** 18;
         return premiumInstallments;
-    }
-
-    // function to mint NFT
-    function mint() private {
-        tokenIds += 1;
-        nftPolicy.safeMint(msg.sender, "MetadatURI here");
     }
 
     // function to create policy
@@ -124,7 +123,7 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         //record user has insured
         insured[msg.sender] = true;
         // mint NFT to wallet
-        mint();
+        nftPolicy.mintNFT(msg.sender, _price, _timeDuration, _porfolioValue);
         //
     }
 
