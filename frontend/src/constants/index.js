@@ -73,7 +73,7 @@ export const feedback = [
   {
     id: 'feedback-2',
     content:
-      'Skilled in Solidity, Ethersjs, rust, circom, machine learning and neural networks.',
+      'Blockchain Developer focused on Smart Contract Auditing and Security.',
     name: 'JnrLouis',
     title: 'Blockchain Developer',
     img: people02,

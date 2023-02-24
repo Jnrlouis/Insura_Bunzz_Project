@@ -8,6 +8,31 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 contract helper {
     IERC721Metadata internal NFT_Contract;
     AggregatorV3Interface internal nftFloorPriceFeed;
+    // uint256 public floor;
+
+    // address constant Azuki = 0x9F6d70CDf08d893f0063742b51d3E9D1e18b7f74;
+    // address constant BAYC = 0xB677bfBc9B09a3469695f40477d05bc9BcB15F50;
+    // address constant CloneX = 0xE42f272EdF974e9c70a6d38dCb47CAB2A28CED3F;
+    // address constant CoolCats = 0x13F38938A18ff26394c5ac8df94E349A97AaAb4e;
+    // address constant CryptoPunks =   0x5c13b249846540F81c093Bc342b5d963a7518145;
+    // address constant Cryptoadz =     0x870bc8BfEe8A7Bbd63Dc1ef09F2fF37DeBCfEF35;
+    // address constant Doodles =       0xEDA76D1C345AcA04c6910f5824EC337C8a8F36d2;
+    // address constant MAYC =          0xCbDcc8788019226d09FcCEb4C727C48A062D8124;
+    // address constant VeeFriends =    0x4b531A318B0e44B549F3b2f824721b3D0d51930A;
+    // address constant World_of_Women = 0x2748A42aBd328835DFDA748bdD1D77Ce3c3312EE;
+
+    // enum SUPPORTED_NFT {
+    //     Azuki,
+    //     BAYC,
+    //     CloneX,
+    //     CoolCats,
+    //     CryptoPunks,
+    //     Cryptoadz,
+    //     Doodles,
+    //     MAYC,
+    //     VeeFriends,
+    //     World_of_Women
+    // }
 
     modifier confirmOwner (address _contractAddress, uint256 _tokenId) {
         NFT_Contract = IERC721Metadata(_contractAddress);
@@ -17,7 +42,7 @@ contract helper {
 
     modifier checkFloorPriceValidity () {
         int nftFloorPrice = getFloorPrice();
-        require (nftFloorPrice >= 0.6 ether, "FLOOR PRICE TOO LOW");
+        require (nftFloorPrice >= 0.1 ether, "FLOOR PRICE TOO LOW");
         _;
     }
 
@@ -41,7 +66,7 @@ contract helper {
 
     function getFloorPrice () public returns (int) {
          nftFloorPriceFeed = AggregatorV3Interface(
-            0xB677bfBc9B09a3469695f40477d05bc9BcB15F50
+            0x2748A42aBd328835DFDA748bdD1D77Ce3c3312EE
         );
         (
             ,
@@ -51,6 +76,20 @@ contract helper {
         ) = nftFloorPriceFeed.latestRoundData();
         return nftFloorPrice;
     }
+
+    // function checkFloorPrice (address aggregator) public returns (int) {
+    //      nftFloorPriceFeed = AggregatorV3Interface(
+    //         aggregator
+    //     );
+    //     (
+    //         ,
+    //         int nftFloorPrice,
+    //         ,
+    //         ,
+    //     ) = nftFloorPriceFeed.latestRoundData();
+    //     floor = uint256(nftFloorPrice);
+    //     return nftFloorPrice;
+    // }
 
     //0xE29F8038d1A3445Ab22AD1373c65eC0a6E1161a4
     //683
