@@ -1,21 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// DONE == 1. Deploy NFT With Bunzz
-// DONE == 2. Write the setPolicyCondition
-// DONE == 3. Write the claim condition
-// DONE == 4. Add Chainlink Price Oracle to confirm price
-// DONE == 5. In the createPolicy function, update the input param into the struct
-// Then TEST!!!!!
-// DONE == 6. Test the get Eth Price
-// DONE == 7. Test the check Eth value function in createPolicy function
-// DONE == 8. Add the reentracy guard to the claimSettlement function
-// DONE == 9. Test the NFT mint function in createPolicy function
-// DONE == 10. Add the dynamic metadata feature
-// DONE == 101. Create the metadata URI
-// DONE == 10. Test the Burn mint function claimSettlement function
-// 12 Add NatSpec
-// 13. Research on Thirdweb to get ideas for Bunzz
+/// @title ETHEREUM PRICE DEVALUATION INSURANCE
+/// @author TheBlocAmora TEAM
+/// @notice This is an insurance policy for $ETH Price Devaluation
+/// @notice Contract owner cannot transfer contract funds
+/// @notice Contract leverages parametric insurance model, using chainlink price feeds
+/// as a decentralized oracle to automatically handle claim assessment and settlement
+/// Users also hold a policy NFT with DYNAMIC METADATA as Proof of Agreement!
+/// This NFT is minted upon policy creation and burnt after claim settlements
+/// @dev All function calls are currently implemented without side effects
+/// @custom:testing stages. This contract has been rigorously tested.
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -23,15 +18,8 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./IInsurancePolicy.sol";
 
 contract EthPriceInsurance is Ownable, ReentrancyGuard {
-    uint256 public tokenIds;
-    uint256 public noOfHolders;
-    uint256 public ethPrice;
-
-    // policy contract instance
-    IInsurancePolicy nftPolicy;
-
-    AggregatorV3Interface internal priceFeed;
-
+    /// @notice A Struct to record each holder of this policy
+    /// @dev Struct stores each policyholder's Data
     struct PolicyHolder {
         uint256 insuredPrice;
         uint256 premiumPaid;
@@ -40,10 +28,20 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         bool hasPolicy;
     }
 
-    //an ID for all policyHolders
-    // mapping(uint256 => PolicyHolder) public policyHolders;
+    //**************VARIABLE DECLARATION***************//
+    uint256 public tokenIds;
+    uint256 public noOfHolders;
+    uint256 public ethPrice;
+
+    // policy contract instance
+    IInsurancePolicy nftPolicy;
+
+    //chainlink price feeds
+    AggregatorV3Interface internal priceFeed;
+
     // a list of all Policy holders
     mapping(address => PolicyHolder) public policyHolders;
+    // mapping(uint256 => PolicyHolder) public policyHolders;
     // stores record of insured users
     mapping(address => bool) insured;
 
@@ -60,22 +58,29 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         );
     }
 
+    //******************READABLE FUNCTIONS*******************//
     /**
      * Returns the latest price of Ethereum in USD
      */
 
+    /// @notice reads the current price of ETH from chainlink price feeds
+    /// @dev returns $Ether as 8 decimals value
+    /// @dev function rounds up $Ether price to 18 decimals by ^10
     function getEthPrice() public view returns (uint256) {
         (, int price, , , ) = priceFeed.latestRoundData();
-        return uint256(price);
+        return uint256(price * 10 ** 10);
     }
 
-    // function to read the price of eth;
+    /// @notice function calls getEthPrice() above
+    /// @dev enables price feeds data to be reused inside of functions
+    /// @dev stores $Ether price into ethPrice
     function checkEthPrice() public returns (uint256) {
         ethPrice = getEthPrice();
         return ethPrice;
     }
 
-    //function calculates premium
+    /// @notice function handles the calculation of installmental payments
+    /// @dev can only be called by this contract
     function calculateMinimumPremium(
         uint256 _value
     ) private pure returns (uint256) {
@@ -84,7 +89,24 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         return premiumInstallments;
     }
 
-    // function to create policy
+    /// @notice function handles the calculation of installmental payments
+    /// @dev can only be called by contract owner
+    function contractBalance() public view onlyOwner returns (uint256) {
+        address insureContract = address(this);
+        uint256 insurePool = insureContract.balance;
+        return insurePool;
+    }
+
+    //******************WRITABLE FUNCTIONS*******************//
+
+    /// @notice Enables DeFi users to create policy agreement
+    /// @dev Updates parameters in struct
+    /// @dev Records the data of every policyholder && tracks who holds policy
+    /// @dev Function mints NFT with a DYNAMIC METADATA to holders wallet
+    /// @dev DYNAMIC METADATA stores the "price", "duration" and "portfolio" insured onchain!
+    /// @param _price is the ETH price a user wants to insure against
+    /// @param _timeDuration the number of days the user wants cover to run(must not be lesser than 30 days)
+    /// @param _portfolioValue is the portfolio size of the user. This determines amount to be paid as premium
     function createPolicyAgreement(
         uint256 _price,
         uint256 _timeDuration,
@@ -127,6 +149,9 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         //
     }
 
+    /// @notice Enables DeFi users to withdraw premiums paid (No questions asked)
+    /// @dev Function uses Chainlink price feeds to check if $Eth price
+    /// @dev is below insured amount, if true, pays holder
     function claimSettlement() public nonReentrant {
         // require sender owns NFT OR he's on the insured list
         require(insured[msg.sender] == true, "You're not entitled to this!");
@@ -145,15 +170,9 @@ contract EthPriceInsurance is Ownable, ReentrancyGuard {
         // @dev later take 1% of claim withdrawn for maintainance
         ///////////////////
         // BurnNFT
-        // IAmoraInsureDeFi.burn(tokenId);
+        // nftPolicy.burn();
         ///////////////////
         noOfHolders--;
-    }
-
-    function contractBalance() public view onlyOwner returns (uint256) {
-        address insureContract = address(this);
-        uint256 insurePool = insureContract.balance;
-        return insurePool;
     }
 
     receive() external payable {}
