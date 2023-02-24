@@ -11,12 +11,12 @@ const Testimonials = () => (
     <div className="w-full flex justify-between items-center md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]">
       <h1 className={style.heading2}>
         Meet The BlocAmora <br className="sm:block hidden" />
-        Team Members
+        Team 
       </h1>
 
       <div className="w-full md:mt-0 mt-6">
         <p className={`${style.paragraph} text-left max-w-[450px]`}>
-          THEBA INSURA Decentralize Application was developed by The BlocAmora
+          THEBA INSURA Decentralize Application... Designed and developed by The BlocAmora
           team.
         </p>
       </div>

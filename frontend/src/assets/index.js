@@ -28,11 +28,15 @@ import people04 from './people04.png';
 import bunzz1 from './bunnz1.png';
 import bunzz2 from './bunzz2.jpg';
 import bunzz3 from './bunzz3.png';
+import bubble from './Bubble.svg';
 import bag from './img.svg';
+import eth from './eth.png';
 import smartcon1 from './2-smart-contract-cover.svg';
 
 export {
+   eth,
   bunzz,
+  bubble,
   bunzzz,
   binance,
   coinbase,
