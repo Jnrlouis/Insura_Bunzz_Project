@@ -9,9 +9,9 @@
 
 **Deployed on Goerli Network:** 
 
-NFT Custom URI: https://goerli.etherscan.io/address/0x17C091d743b8919DFf686C429D04D75E4251808C
+`NFT Custom URI:` https://goerli.etherscan.io/address/0x17C091d743b8919DFf686C429D04D75E4251808C
 
-Token Devaluation Insurance: https://goerli.etherscan.io/address/0x460ef52728224A468efb1a9aAE8fe4129d9AB294
+`Token Devaluation Insurance:` https://goerli.etherscan.io/address/0x460ef52728224A468efb1a9aAE8fe4129d9AB294
 
 ## Use Case
 
