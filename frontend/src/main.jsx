@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/InsuraApp" element={<InsuraApp />} />
+        <Route path="insuraApp" element={<InsuraApp />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
