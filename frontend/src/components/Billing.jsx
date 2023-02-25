@@ -33,7 +33,7 @@ const Billing = () => (
         as the oracle.
       </p>
       <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
-        <Link to="/InsuraApp" target="_blank">
+        <Link to="/InsuraApp">
           <Button styles="mt-10" />
         </Link>
       </div>

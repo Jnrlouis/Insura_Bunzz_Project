@@ -19,7 +19,7 @@ const CTA = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Link to="/InsuraApp" target="_blank">
+        <Link to="/InsuraApp">
           <Button />
         </Link>
       </a>

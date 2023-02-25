@@ -38,7 +38,7 @@ const Business = () => {
           insurance, you can invest in DeFi with confidence, knowing that your
           assets are protected.
         </p>
-        <Link to="/InsuraApp" target="_blank">
+        <Link to="/InsuraApp">
           <Button styles="mt-10" />
         </Link>
         
